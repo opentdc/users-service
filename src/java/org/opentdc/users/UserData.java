@@ -23,20 +23,18 @@
  */
 package org.opentdc.users;
 
-import java.util.Formatter;
-import java.util.Locale;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Present
+ * UserData
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class UserData {
+	
 	private String id;
 	private String loginID;
 	// TODO: private Contact contact; // contains all address data
@@ -118,19 +116,4 @@ public class UserData {
 		this.salt = salt;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder _sb = new StringBuilder();
-		Formatter _formatter = new Formatter(_sb, Locale.US);
-		_formatter.format(
-				"User [ID:%s\nloginID:%s\nhashedPassword:%s\nsalt:%s\n",
-				getId(), getHashedPassword(), getSalt());
-		_formatter.close();
-		return _sb.toString();
-	}
 }

@@ -47,8 +47,8 @@ import org.opentdc.service.exception.NotFoundException;
 @Path("/api/users")
 public class UserService extends GenericService {
 
-	private Logger logger = Logger.getLogger(this.getClass().getName());
-	private Map<String, UserData> data = new HashMap<String, UserData>();
+	private static final Logger logger = Logger.getLogger(UserService.class.getName());
+	private static Map<String, UserData> data = new HashMap<String, UserData>();
 
 	@GET
 	@Path("/")
