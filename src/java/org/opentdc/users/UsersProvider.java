@@ -30,9 +30,9 @@ import java.util.Arrays;
  * 
  * @param <T>
  */
-public class UserProvider<T> extends org.apache.cxf.jaxrs.provider.json.JSONProvider<T> {
+public class UsersProvider<T> extends org.apache.cxf.jaxrs.provider.json.JSONProvider<T> {
 
-	public UserProvider(
+	public UsersProvider(
 	) {
 		super();
 		this.setSerializeAsArray(true);

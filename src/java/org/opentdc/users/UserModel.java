@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class UserData {
+public class UserModel {
 	
 	private String id;
 	private String loginID;
@@ -44,13 +44,13 @@ public class UserData {
 
 	// TODO: authTypes: github, twitter, facebook, google
 
-	public UserData() {
+	public UserModel() {
 		this.loginID = "undefined";
 		this.hashedPassword = "change_on_install";
 		this.salt = "this is a very bad salt";
 	}
 
-	public UserData(String loginID, String hashedPassword, String salt) {
+	public UserModel(String loginID, String hashedPassword, String salt) {
 		this.loginID = loginID;
 		this.hashedPassword = hashedPassword;
 		this.salt = salt;
