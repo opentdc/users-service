@@ -101,7 +101,7 @@ public class UsersService extends GenericService<ServiceProvider> {
 	public UserModel update(
 		@PathParam("id") String id,
 		UserModel user
-	) {
+	) throws NotFoundException {
 		return sp.update(id, user);
 	}
 
@@ -112,19 +112,4 @@ public class UsersService extends GenericService<ServiceProvider> {
 	) throws NotFoundException {
 		sp.delete(id);
 	}
-
-	@DELETE
-	@Path("/")
-	public void deleteAll(
-	) {
-		sp.deleteAll();
-	}
-
-	@GET
-	@Path("/count")
-	public int count(
-	) {
-		return sp.count();
-	}
-
 }

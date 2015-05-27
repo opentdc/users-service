@@ -36,22 +36,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserModel {
 	
 	private String id;
-	private String loginID;
-	// TODO: private Contact contact; // contains all address data
+	private String loginId;
+	private String contactId;   // contains all address data
 	// TODO: List<Role> roles
 	private String hashedPassword;
 	private String salt;
-
 	// TODO: authTypes: github, twitter, facebook, google
 
 	public UserModel() {
-		this.loginID = "undefined";
-		this.hashedPassword = "change_on_install";
-		this.salt = "this is a very bad salt";
 	}
 
-	public UserModel(String loginID, String hashedPassword, String salt) {
-		this.loginID = loginID;
+	public UserModel(String loginId, String contactId, String hashedPassword, String salt) {
+		this.loginId = loginId;
+		this.contactId = contactId;
 		this.hashedPassword = hashedPassword;
 		this.salt = salt;
 	}
@@ -74,16 +71,16 @@ public class UserModel {
 	/**
 	 * @return the loginID
 	 */
-	public String getLoginID() {
-		return loginID;
+	public String getLoginId() {
+		return loginId;
 	}
 
 	/**
 	 * @param loginID
 	 *            the loginID to set
 	 */
-	public void setLoginID(String loginID) {
-		this.loginID = loginID;
+	public void setLoginId(String loginID) {
+		this.loginId = loginID;
 	}
 
 	/**
@@ -114,6 +111,14 @@ public class UserModel {
 	 */
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public String getContactId() {
+		return contactId;
+	}
+
+	public void setContactId(String contactId) {
+		this.contactId = contactId;
 	}
 
 }
