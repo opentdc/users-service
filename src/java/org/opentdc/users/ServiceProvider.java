@@ -25,8 +25,7 @@ package org.opentdc.users;
 
 import java.util.List;
 
-import org.opentdc.service.exception.DuplicateException;
-import org.opentdc.service.exception.NotFoundException;
+import org.opentdc.service.exception.*;
 
 public interface ServiceProvider {
 	
@@ -37,11 +36,20 @@ public interface ServiceProvider {
 		long size
 	);
 
-	public UserModel create(UserModel user) throws DuplicateException;
+	public UserModel create(
+			UserModel user) 
+			throws DuplicateException, ValidationException;
 
-	public UserModel read(String id) throws NotFoundException;
+	public UserModel read(
+			String id) 
+			throws NotFoundException;
 
-	public UserModel update(String id, UserModel user) throws NotFoundException;
+	public UserModel update(
+			String id, 
+			UserModel user) 
+			throws NotFoundException, NotAllowedException;
 
-	public void delete(String id) throws NotFoundException;
+	public void delete(
+			String id) 
+			throws NotFoundException, InternalServerErrorException;
 }

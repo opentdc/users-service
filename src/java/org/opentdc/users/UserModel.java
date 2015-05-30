@@ -23,6 +23,8 @@
  */
 package org.opentdc.users;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -42,6 +44,10 @@ public class UserModel {
 	private String hashedPassword;
 	private String salt;
 	// TODO: authTypes: github, twitter, facebook, google
+	private Date createdAt;
+	private String createdBy;
+	private Date modifiedAt;
+	private String modifiedBy;
 
 	public UserModel() {
 	}
@@ -119,6 +125,38 @@ public class UserModel {
 
 	public void setContactId(String contactId) {
 		this.contactId = contactId;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getModifiedAt() {
+		return modifiedAt;
+	}
+
+	public void setModifiedAt(Date modifiedAt) {
+		this.modifiedAt = modifiedAt;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
 }

@@ -42,7 +42,10 @@ import javax.ws.rs.core.MediaType;
 
 import org.opentdc.service.GenericService;
 import org.opentdc.service.exception.DuplicateException;
+import org.opentdc.service.exception.InternalServerErrorException;
+import org.opentdc.service.exception.NotAllowedException;
 import org.opentdc.service.exception.NotFoundException;
+import org.opentdc.service.exception.ValidationException;
 
 @Path("/api/users")
 public class UsersService extends GenericService<ServiceProvider> {
@@ -81,7 +84,7 @@ public class UsersService extends GenericService<ServiceProvider> {
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserModel create(
 		UserModel user
-	) throws DuplicateException {
+	) throws DuplicateException, ValidationException {
 		return sp.create(user);
 	}
 
@@ -101,7 +104,7 @@ public class UsersService extends GenericService<ServiceProvider> {
 	public UserModel update(
 		@PathParam("id") String id,
 		UserModel user
-	) throws NotFoundException {
+	) throws NotFoundException, NotAllowedException {
 		return sp.update(id, user);
 	}
 
@@ -109,7 +112,7 @@ public class UsersService extends GenericService<ServiceProvider> {
 	@Path("/{id}")
 	public void delete(
 		@PathParam("id") String id
-	) throws NotFoundException {
+	) throws NotFoundException, InternalServerErrorException {
 		sp.delete(id);
 	}
 }
