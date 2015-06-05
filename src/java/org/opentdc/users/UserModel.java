@@ -23,6 +23,7 @@
  */
 package org.opentdc.users;
 
+import java.util.Comparator;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -37,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class UserModel {
 	
-	private String id;
+	private String id;			// sortable
 	private String loginId;
 	private String contactId;   // contains all address data
 	// TODO: List<Role> roles
@@ -158,5 +159,26 @@ public class UserModel {
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
+	
+	/******************************* Comparator *****************************/
+	public static Comparator<UserModel> UserComparator = new Comparator<UserModel>() {
 
+		public int compare(UserModel obj1, UserModel obj2) {
+			if (obj1.getId() == null) {
+				return -1;
+			}
+			if (obj2.getId() == null) {
+				return 1;
+			}
+
+			String _attr1 = obj1.getId();
+			String _attr2 = obj2.getId();
+
+			// ascending order
+			return _attr1.compareTo(_attr2);
+
+			// descending order
+			// return _attr2.compareTo(_attr1);
+		}
+	};
 }
