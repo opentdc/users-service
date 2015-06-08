@@ -47,7 +47,7 @@ public interface ServiceProvider {
 	public UserModel update(
 			String id, 
 			UserModel user) 
-			throws NotFoundException, NotAllowedException;
+			throws NotFoundException, ValidationException;
 
 	public void delete(
 			String id) 
