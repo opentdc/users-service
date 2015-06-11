@@ -39,11 +39,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserModel {
 	
 	private String id;			// sortable
-	private String loginId;
-	private String contactId;   // contains all address data
+	private String loginId;		// mandatory
+	private String contactId;   // mandatory, contains all address data
 	// TODO: List<Role> roles
-	private String hashedPassword;
-	private String salt;
+	private String hashedPassword;	// mandatory
+	private String salt;		// mandatory
 	// TODO: authTypes: github, twitter, facebook, google
 	private Date createdAt;
 	private String createdBy;
