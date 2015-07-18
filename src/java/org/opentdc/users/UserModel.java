@@ -40,11 +40,11 @@ public class UserModel {
 	
 	private String id;			// sortable
 	private String loginId;		// mandatory
-	private String contactId;   // mandatory, contains all address data
+	private String contactId;   // mandatory
 	// TODO: List<Role> roles
-	private String hashedPassword;	// mandatory
-	private String salt;		// mandatory
-	// TODO: authTypes: github, twitter, facebook, google
+	private String hashedPassword;
+	private String salt;
+	private AuthType authType;	// mandatory, default = UIDPWD
 	private Date createdAt;
 	private String createdBy;
 	private Date modifiedAt;
@@ -53,11 +53,9 @@ public class UserModel {
 	public UserModel() {
 	}
 
-	public UserModel(String loginId, String contactId, String hashedPassword, String salt) {
+	public UserModel(String loginId, String contactId) {
 		this.loginId = loginId;
 		this.contactId = contactId;
-		this.hashedPassword = hashedPassword;
-		this.salt = salt;
 	}
 
 	/**
@@ -160,6 +158,20 @@ public class UserModel {
 		this.modifiedBy = modifiedBy;
 	}
 	
+	/**
+	 * @return the authType
+	 */
+	public AuthType getAuthType() {
+		return authType;
+	}
+
+	/**
+	 * @param authType the authType to set
+	 */
+	public void setAuthType(AuthType authType) {
+		this.authType = authType;
+	}
+
 	/******************************* Comparator *****************************/
 	public static Comparator<UserModel> UserComparator = new Comparator<UserModel>() {
 
