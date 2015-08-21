@@ -30,8 +30,8 @@ import org.opentdc.service.exception.*;
 public interface ServiceProvider {
 	
 	public List<UserModel> list(
-		String queryType,
 		String query,
+		String queryType,
 		long position,
 		long size
 	);

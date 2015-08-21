@@ -69,12 +69,12 @@ public class UsersService extends GenericService<ServiceProvider> {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<UserModel> list(
-		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
 		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
+		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
 		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") long position,
 		@DefaultValue(DEFAULT_SIZE) @QueryParam("size") long size			
 	) {
-		return sp.list(queryType, query, position, size);
+		return sp.list(query, queryType, position, size);
 	}
 
 	@POST
