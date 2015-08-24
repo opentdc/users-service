@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -82,9 +83,10 @@ public class UsersService extends GenericService<ServiceProvider> {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserModel create(
+		@Context HttpServletRequest request,
 		UserModel user
 	) throws DuplicateException, ValidationException {
-		return sp.create(user);
+		return sp.create(request, user);
 	}
 
 	@GET
@@ -101,10 +103,11 @@ public class UsersService extends GenericService<ServiceProvider> {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserModel update(
+		@Context HttpServletRequest request,
 		@PathParam("id") String id,
 		UserModel user
 	) throws NotFoundException, ValidationException {
-		return sp.update(id, user);
+		return sp.update(request, id, user);
 	}
 
 	@DELETE

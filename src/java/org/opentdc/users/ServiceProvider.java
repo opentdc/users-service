@@ -25,6 +25,8 @@ package org.opentdc.users;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.opentdc.service.exception.*;
 
 public interface ServiceProvider {
@@ -37,6 +39,7 @@ public interface ServiceProvider {
 	);
 
 	public UserModel create(
+			HttpServletRequest request,
 			UserModel user) 
 			throws DuplicateException, ValidationException;
 
@@ -45,6 +48,7 @@ public interface ServiceProvider {
 			throws NotFoundException;
 
 	public UserModel update(
+			HttpServletRequest request,
 			String id, 
 			UserModel user) 
 			throws NotFoundException, ValidationException;
